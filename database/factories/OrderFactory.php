@@ -17,7 +17,8 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "order_number" => uniqid()
+            
         ];
     }
 }

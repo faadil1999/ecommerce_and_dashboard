@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             Order::factory()
             ->count(3)
             ->hasAttached(
-                Product::factory()->count(3),
+                Product::factory()->count(5),
                 ['total_price' => rand(100,500) , 'total_quantity' => rand(1,3) ]
 
             )
