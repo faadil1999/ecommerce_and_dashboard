@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class APIProductController extends Controller
@@ -9,11 +10,22 @@ class APIProductController extends Controller
     //
     public function products(){
  
-        return "Les produits";        
+        $products = Product::all();
+
+        return $products;        
 
     }
 
     public function product($id){
-        return "Vous avez un produit qui a pour id =" . $id;
+        $product = Product::find($id);
+        return $product;
+    }
+
+    public function store(Request $request){
+
+        $product = Product::where('id',$request->productId )->first();
+
+        return $product;
+
     }
 }

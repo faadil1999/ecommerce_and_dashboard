@@ -23,3 +23,13 @@ Route::get('products',[APIProductController::class , 'products']);
 Route::get('products/product/{id}',[APIProductController::class , 'product']);
 
 Route::get('dashboard',[AuthController::class,'dashboard'])->middleware('auth:sanctum');
+
+Route::middleware(['auth:sanctum'])->group(function(){
+
+    Route::get('/user',function(Request $request){
+        return $request->user();
+    });
+
+    Route::apiResource('products', APIProductController::class);
+
+});

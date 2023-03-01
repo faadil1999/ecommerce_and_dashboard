@@ -20,7 +20,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        return view('products.index');
+        return view('welcome',[
+            'products'=>$products
+        ]);
     }
 
 }
